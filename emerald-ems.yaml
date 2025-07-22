@@ -1,16 +1,3 @@
-# esphome_emerald_ble
-A continuation of the good work by WeekendWarrior1 to support the emerald_electricity_advisor
-
-Original project: [emerald_electricity_advisor](https://github.com/WeekendWarrior1/emerald_electricity_advisor)
-
-
-# Example yaml
-Be sure to set the substitutions:
-- ble_client_mac_address: "xx:xx:xx:xx:xx:xx"
-- sensor_pairing_code: "xxxxxx"
-- sensor_pulses_per_kwh: "1000"
-
-```yaml
 esphome:
   name: emerald-ems
   friendly_name: Emerald EMS
@@ -24,6 +11,7 @@ external_components:
   - source: github://bdshields/esphome_emerald_ble@main
     components: [ ble_client, esp32_ble_tracker, emerald_ble ]
 
+# Find these details on the device
 substitutions:
   ble_client_mac_address: "xx:xx:xx:xx:xx:xx"
   sensor_pairing_code: "xxxxxx"
@@ -76,4 +64,3 @@ sensor:
     pairing_code: ${sensor_pairing_code}
     pulses_per_kwh: ${sensor_pulses_per_kwh}
     time_id: homeassistant_time # daily energy still works without a time_id, but recommended to include one to properly handle daylight savings, etc.
-```
